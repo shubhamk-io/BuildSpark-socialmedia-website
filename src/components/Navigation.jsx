@@ -16,9 +16,9 @@ export default function Navigation() {
                 <div className="flex items-center justify-between h-20">
 
                     {/* Logo */}
-                    <a href="#" className="text-2xl font-bold ">
-                        <span className="text-blue-400">FLEXX</span>
-                        <span className="text-white"> MEDIA</span>
+                    <a href="#" className="text-3xl font-bold ">
+                        <span className="text-blue-400">BUILD</span>
+                        <span className="text-white"> SPARK</span>
                     </a>
 
                     {/* Desktop Menu */}

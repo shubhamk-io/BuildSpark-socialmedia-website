@@ -1,5 +1,6 @@
 import { Mail, MessageSquare, Phone } from 'lucide-react';
 import { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 export default function Contact() {
     const [formData, setFormData] = useState({
@@ -11,9 +12,27 @@ export default function Contact() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
-    };
 
+        emailjs.send(
+            "service_uz8yk7y",
+            "template_e4q62h3",
+            formData,
+            "AWiUiRxjj4SHYmwLM"
+        )
+            .then(() => {
+                alert("Message Sent Successfully ✅");
+                setFormData({
+                    name: '',
+                    email: '',
+                    service: '',
+                    message: '',
+                });
+            })
+            .catch((error) => {
+                console.error("FULL ERROR:", error);
+                alert(error.text || "Failed to send message");
+            });
+    };
     const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -133,7 +152,7 @@ export default function Contact() {
                                     </div>
                                     <div>
                                         <h5 className="text-white font-semibold mb-1">Email Us</h5>
-                                        <p className="text-gray-400">flexxsocialagency@gmail.com</p>
+                                        <p className="text-gray-400">buildspark@gmail.com</p>
                                     </div>
                                 </div>
 
